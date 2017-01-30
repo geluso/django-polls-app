@@ -27,7 +27,8 @@ class QuestionAdmin(admin.ModelAdmin):
   # https://docs.djangoproject.com/en/1.10/ref/contrib/admin/#django.contrib.admin.ModelAdmin.list_display
   # BooleanField, CharField, DateField, DateTimeField, IntegerField, ForeignKey
   # or ManyToManyField
-  list_filter = ['pub_date', 'question_text']
+  list_filter = ['pub_date']
+  search_fields = ['question_text']
 
 # We're registering the Question model to display with the
 # configured QuestionAdmin class.
