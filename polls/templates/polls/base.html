@@ -1,0 +1,23 @@
+{% load static %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <nav>
+        <a href="{% url 'index' %}">
+          Polls
+        </a>
+      </nav>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      {% block content %}
+      {% endblock %}
+    </div>
+  </div>
+</div>

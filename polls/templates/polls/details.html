@@ -1,8 +1,6 @@
-<nav>
-  <a href="{% url 'index' %}">
-    Polls
-  </a>
-</nav>
+{% extends 'polls/base.html' %}
+
+{% block content %}
 <h1>{{ question.question_text }}</h1>
 <form action="{% url 'vote' question.id %}" method="POST">
   {% csrf_token %}
@@ -16,3 +14,4 @@
   {% endfor %}
   <input type="submit" value="Vote" />
 </form>
+{% endblock %}
