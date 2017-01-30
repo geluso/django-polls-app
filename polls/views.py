@@ -6,11 +6,10 @@ from .models import Question
 # Create your views here.
 def index(request):
     latest_questions = Question.objects.order_by('-pub_date')[:5]
-    questions = []
-    for question in latest_questions:
-      questions.append(question.question_text)
-    text = ", ".join(questions)
-    return HttpResponse(text)
+    context = {
+      'latest_question_list': latest_questions
+    }
+    return render(request, 'polls/index.html', context)
     
 def details(request, question_id):
     return HttpResponse(f"You're looking at question {question_id}")
