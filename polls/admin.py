@@ -18,6 +18,16 @@ class QuestionAdmin(admin.ModelAdmin):
     ('Date Information', {'fields': ['pub_date']})
   ]
   inlines = [ChoiceInline]
+  list_display = ('question_text', 'pub_date', 'was_published_recently')
+  # Adding list_filter activates a side panel in the admin interface that
+  # let's users filter things easily. It shows options like "Any Date", "Today",
+  # "Past 7 Days", "This Month" for DateFields. It only supports certain types
+  # of fields by default. Using other fields requires customization.
+  # list_filter docs:
+  # https://docs.djangoproject.com/en/1.10/ref/contrib/admin/#django.contrib.admin.ModelAdmin.list_display
+  # BooleanField, CharField, DateField, DateTimeField, IntegerField, ForeignKey
+  # or ManyToManyField
+  list_filter = ['pub_date', 'question_text']
 
 # We're registering the Question model to display with the
 # configured QuestionAdmin class.
